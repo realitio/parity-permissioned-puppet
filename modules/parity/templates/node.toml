@@ -1,0 +1,23 @@
+[parity]
+chain = "/home/parity/zenchain/zenchain.json"
+base_path = "/home/parity/zenchain"
+[network]
+nat = "none"
+port = 30300
+[rpc]
+port = 8545
+interface = "all"
+hosts = ["all"]
+apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts"]
+[ui]
+port = 8180
+[dapps]
+port = 8080
+[account]
+unlock = ["<%= @VALIDATORS[@VALIDATOR_NUM.to_i] %>"]
+password = ["/home/parity/zenchain/user.pwds"]
+[mining]
+engine_signer = "<%= @VALIDATORS[@VALIDATOR_NUM.to_i] %>"
+reseal_on_txs = "none"
+usd_per_tx = "0"
+
