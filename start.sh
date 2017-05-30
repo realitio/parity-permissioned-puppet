@@ -1,15 +1,18 @@
 #!/bin/bash
 
+if [ ! -f "./modules/parity/files/secrets/account0" ]; then
+   echo "Key file not found. Key file should be copied here manually, it is not managed by puppet."
+   echo "Please create a key as modules/parity/files/secrets/account0 and save its password in a file modules/parity/files/secrets/user.pwds"
+   exit 1
+fi
+
+if [ ! -f "./modules/parity/files/secrets/account0" ]; then
+   echo "Please save your keys's password in a file modules/parity/files/secrets/user.pwds"
+   exit 1
+fi
+
+
 apt-get install puppet
 puppet module install puppetlabs-stdlib --version 4.17.0
 
 sudo puppet apply manifests/init.pp --modulepath modules/:/etc/puppet/modules
-
-echo ""
-echo "-----------------------------------------------------------------------"
-echo "This should run once and fail because it does not have the keys."
-echo "You should then copy the keys to"
-echo "/home/parity/zenchain/keys/ZenChain"
-echo "...and the password to "
-echo "/home/parity/zenchain/user.pwds"
-echo "-----------------------------------------------------------------------"

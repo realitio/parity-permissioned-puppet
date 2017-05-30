@@ -1,12 +1,12 @@
 class parity {
   
    $VALIDATORS = [
-      "0x7f9efb6a1432db5e80730613ffc4195f2c5ade83",
-      "0x32f1d8ae279dee2a86794cccd38e5c63bf1b3b38",
-      "0xf4403274de2dc2a967ac291d63984b04adf19899"
+      "0x84ab299f1b95ad86fd90a5c7286becf297d03145",
+      "0x893c4f6a029bfd91ca72f6bdfe076dfbfbc11031",
+      "0xc09af5f02d6a6553116c336e60d938e28c9fa98a"
    ]
    $DEPLOYERS = [
-      "0x8426f51494194f63a506acc57e87b9e7e4a63dc6",
+      "0x3290c133b4c8eb6b7160313854538569dcfa9027",
    ]
 
    group { "parity": 
@@ -58,12 +58,40 @@ class parity {
       content => template("parity/node.toml"),
    }
 
+   file { "/home/parity/zenchain/keys":
+      ensure => directory,
+      owner   => "parity",
+      group   => "parity",
+      require => File["/home/parity/zenchain"],
+   }
+
+   file { "/home/parity/zenchain/keys/ZenChain":
+      ensure => directory,
+      owner   => "parity",
+      group   => "parity",
+      require => File["/home/parity/zenchain/keys"],
+   }
+
+   file { "/home/parity/zenchain/keys/ZenChain/account0":
+      source  => "puppet:///modules/parity/secrets/account0",
+      owner   => "parity",
+      group   => "parity",
+      require => File["/home/parity/zenchain/keys/ZenChain"],
+   }
+
+   file { "/home/parity/zenchain/user.pwds":
+      source  => "puppet:///modules/parity/secrets/user.pwds",
+      owner   => "parity",
+      group   => "parity",
+      require => File["/home/parity/zenchain"],
+   }
+
    file { '/lib/systemd/system/parity.service':
      mode    => '0644',
      owner   => 'root',
      group   => 'root',
      source  => "puppet:///modules/parity/systemd/parity.service",
-     require => File["/home/parity/zenchain/node.toml"],
+     require => [ File["/home/parity/zenchain/node.toml"], File["/home/parity/zenchain/user.pwds"] ],
      notify  => Exec["parity-systemd-reload"],
    }
    exec { 'parity-systemd-reload':
