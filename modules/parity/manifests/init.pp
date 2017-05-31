@@ -87,12 +87,12 @@ class parity {
       require => File["/home/parity/zenchain"],
    }
 
-   # NB This needs to be set up manually by getting enodes from syslog
+   # NB This needs to be set up manually when a new node is created
    file { "/home/parity/zenchain/reserved-peers.txt":
       source  => "puppet:///modules/parity/reserved-peers.txt",
       owner   => "parity",
       group   => "parity",
-      replace => "no", # NB WE DO NOT MANAGE THIS, UPDATE IT MANUALLY
+      # replace => "no", # Uncomment this if you prefer to manage the file without puppet
       require => File["/home/parity/zenchain"],
       notify  => Service["parity.service"],
    }
