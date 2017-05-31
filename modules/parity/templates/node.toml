@@ -8,7 +8,7 @@ port = 8545
 interface = "all"
 hosts = ["all"]
 apis = ["web3", "eth", "net", "parity", "traces", "rpc"]
-<% elsif @NODE_ROLE == "PRIVATE_RPC" %>
+<% elsif @NODE_ROLE == "DEPLOYER" %>
 [rpc]
 port = 8545
 interface = "127.0.0.1"
@@ -19,6 +19,13 @@ apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc
 [account]
 unlock = ["<%= @VALIDATORS[@VALIDATOR_NUM.to_i] %>"]
 password = ["/home/parity/zenchain/user.pwds"]
+<% elsif @NODE_ROLE == "DEPLOYER" %>
+[account]
+unlock = ["<%= @DEPLOYERS[@DEPLOYER_NUM.to_i] %>"]
+password = ["/home/parity/zenchain/user.pwds"]
+<% end %>
+
+<% if @NODE_ROLE == "VALIDATOR" %>
 [mining]
 engine_signer = "<%= @VALIDATORS[@VALIDATOR_NUM.to_i] %>"
 reseal_on_txs = "none"

@@ -47,7 +47,8 @@ node zen-ishikari-2 {
 
 node zen-tokyo-4 {
 
-   $NODE_ROLE = "PRIVATE_RPC"
+   $VALIDATOR_NUM = 0
+   $NODE_ROLE = "DEPLOYER"
 
    include puppet
    include utils
