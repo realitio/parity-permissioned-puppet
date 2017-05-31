@@ -58,3 +58,13 @@ node zen-tokyo-4 {
    include truffle-deps
 
 }
+
+node zen-tokyo-3 {
+
+   include puppet
+   include utils
+   include sshd
+   include webserver
+
+}
+
