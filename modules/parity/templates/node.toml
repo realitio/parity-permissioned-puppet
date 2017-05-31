@@ -37,7 +37,6 @@ port = 30300
 min_peers = 25
 max_peers = 50
 nat = "none"
-id = 239
 bootnodes = []
 discovery = false
 warp = false
