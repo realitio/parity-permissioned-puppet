@@ -13,6 +13,7 @@ The following are hard-coded:
  * modules/parity/files/reserved-peers.txt:
    The enodes and IP addresses of the permitted peers. On a new install the network will not sync until these are updated.
    The enode of each node is output by the setup script, which gets it from syslog.
+   You can update them after setting up the nodes by updating puppet then running ./setup.sh again (or just the puppet line from it).
 
 The setup includes a non-validator node for running truffle deployments and other command-line scripts.
 The truffle installation is not in puppet, although puppet handles some dependencies. 
