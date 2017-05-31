@@ -4,15 +4,22 @@ base_path = "/home/parity/zenchain"
 [network]
 nat = "none"
 port = 30300
+
+<% if @NODE_ROLE == "PUBLIC_RPC" %>
 [rpc]
 port = 8545
 interface = "all"
 hosts = ["all"]
 apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts"]
-[ui]
-port = 8180
-[dapps]
-port = 8080
+<% elsif @NODE_ROLE == "PRIVATE_RPC" %>
+[rpc]
+port = 8545
+interface = "all"
+hosts = ["all"]
+apis = ["web3", "eth", "net", "parity", "traces", "rpc"]
+<% end %>
+
+<% if @NODE_ROLE == "VALIDATOR" %>
 [account]
 unlock = ["<%= @VALIDATORS[@VALIDATOR_NUM.to_i] %>"]
 password = ["/home/parity/zenchain/user.pwds"]
@@ -20,4 +27,5 @@ password = ["/home/parity/zenchain/user.pwds"]
 engine_signer = "<%= @VALIDATORS[@VALIDATOR_NUM.to_i] %>"
 reseal_on_txs = "none"
 usd_per_tx = "0"
+<% end %>
 
