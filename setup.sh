@@ -23,3 +23,7 @@ sleep 3
 echo "Add to reserved-peers.txt on all nodes:"
 grep 'Public node URL: enode' /var/log/syslog | perl -ne 'if ($_=~/.*?(enode:\/\/.*?:30300)/) { print "$1\n" } ' | tail -n1
 
+
+# The following from pssh will update all nodes via the current puppet manifest
+# pssh -h nodes-pssh.conf -l ubuntu -i "cd parity-permissioned-puppet && git pull && sudo puppet apply manifests/init.pp --modulepath modules/:/etc/puppet/modules"
+
