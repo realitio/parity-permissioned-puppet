@@ -8,7 +8,6 @@ class parity {
    $DEPLOYERS = [
       "0x3290c133b4c8eb6b7160313854538569dcfa9027",
    ]
-   $PUBLIC_RPC_NODE = "http://59.106.216.87:8545"
 
    group { "parity": 
      ensure           => 'present',
