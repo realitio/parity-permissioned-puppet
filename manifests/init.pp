@@ -55,4 +55,6 @@ node zen-tokyo-4 {
    include parity
    include sshd
 
+   include truffle-deps
+
 }
