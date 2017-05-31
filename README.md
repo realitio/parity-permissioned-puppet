@@ -1,7 +1,7 @@
 This sets up nodes in a parity private network, running in systemd. It is intended for our particular application and will need to be customized or generalized to use on anything else. The name of the network is hard-coded, as are various other parameters including validator addresses.
 
 To set up a node, we run
-sudo ./setup.sh [noparity]
+`sudo ./setup.sh [noparity]`
 
 It assumes you have generated the validator keys on other systems, and copied them over manually. (See error message when you run setup.sh without doing this)
 
