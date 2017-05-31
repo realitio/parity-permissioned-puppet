@@ -35,3 +35,6 @@ fi
 # The following from pssh will update all nodes via the current puppet manifest
 # pssh -h nodes-pssh.conf -l ubuntu -i "cd parity-permissioned-puppet && git pull && sudo puppet apply manifests/init.pp --modulepath modules/:/etc/puppet/modules"
 
+# The following deploys the build directory after truffle build to the public webserver
+#  rsync -avz --delete build/ ubuntu@59.106.213.49:/var/www/html/ 
+# This assumes you logged into the build box (zen-tokyo-4) with key forwarding, and you have a key to log into the web server box
