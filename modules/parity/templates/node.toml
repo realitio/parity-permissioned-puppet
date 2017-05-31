@@ -10,13 +10,12 @@ port = 30300
 port = 8545
 interface = "all"
 hosts = ["all"]
-apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts"]
+apis = ["web3", "eth", "net", "parity", "traces", "rpc"]
 <% elsif @NODE_ROLE == "PRIVATE_RPC" %>
 [rpc]
 port = 8545
-interface = "all"
-hosts = ["all"]
-apis = ["web3", "eth", "net", "parity", "traces", "rpc"]
+interface = "127.0.0.1"
+apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts"]
 <% end %>
 
 <% if @NODE_ROLE == "VALIDATOR" %>
