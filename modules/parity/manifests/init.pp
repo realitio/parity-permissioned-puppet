@@ -87,6 +87,16 @@ class parity {
       require => File["/home/parity/zenchain"],
    }
 
+   # NB This needs to be set up manually by getting enodes from syslog
+   file { "/home/parity/zenchain/reserved-peers.txt":
+      source  => "puppet:///modules/parity/reserved-peers.txt",
+      owner   => "parity",
+      group   => "parity",
+      replace => "no", # NB WE DO NOT MANAGE THIS, UPDATE IT MANUALLY
+      require => File["/home/parity/zenchain"],
+      notify  => Service["parity.service"],
+   }
+
    file { '/lib/systemd/system/parity.service':
      mode    => '0644',
      owner   => 'root',

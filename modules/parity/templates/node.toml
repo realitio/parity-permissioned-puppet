@@ -1,9 +1,6 @@
 [parity]
 chain = "/home/parity/zenchain/zenchain.json"
 base_path = "/home/parity/zenchain"
-[network]
-nat = "none"
-port = 30300
 
 <% if @NODE_ROLE == "PUBLIC_RPC" %>
 [rpc]
@@ -28,3 +25,20 @@ reseal_on_txs = "none"
 usd_per_tx = "0"
 <% end %>
 
+
+[network]
+disable = false
+port = 30300
+min_peers = 25
+max_peers = 50
+nat = "none"
+id = 19233
+bootnodes = []
+discovery = false
+warp = false
+snapshot_peers = 0
+max_pending_peers = 64
+serve_light = true
+
+reserved_only = true
+reserved_peers = "/home/parity/zenchain/reserved-peers.txt"

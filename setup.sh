@@ -16,3 +16,7 @@ apt-get install puppet
 puppet module install puppetlabs-stdlib --version 4.17.0
 
 sudo puppet apply manifests/init.pp --modulepath modules/:/etc/puppet/modules
+
+echo "Add to reserved-peers.txt on all nodes:"
+grep 'Public node URL: enode' /var/log/syslog | perl -ne 'if ($_=~/.*?(enode:\/\/.*?:30300)/) { print "$1\n" } ' | tail -n1
+
