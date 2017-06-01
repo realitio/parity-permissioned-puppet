@@ -6,9 +6,11 @@ To set up a node, we run
 It assumes you have generated the validator keys on other systems, and copied them over manually. (See error message when you run setup.sh without doing this)
 
 If you don't have any keys, you can create them with:
+
 `sudo dpkg -i /modules/parity/files/parity_1.6.5_amd64.deb`
 `parity account new --datadir ~/paritykeys`
-...then move the resulting key file beginning UTC- to modules/parity/files/secrets/account0, and save the password at modules/parity/files/secrets/user.pwds
+
+...then move the resulting key file beginning UTC- to `modules/parity/files/secrets/account0`, and save the password at `modules/parity/files/secrets/user.pwds`
 
 The following are hard-coded:
 
