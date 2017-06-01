@@ -5,7 +5,7 @@ To set up a node, we run
 
 It assumes you have generated the validator keys on other systems, and copied them over manually. (See error message when you run setup.sh without doing this)
 
-If you don't have any keys, you can create them with:
+If you don't have a key, you can create it with:
 
 `sudo dpkg -i /modules/parity/files/parity_1.6.5_amd64.deb`
 
