@@ -13,6 +13,9 @@ If you don't have a key, you can create it with:
 
 ...then move the resulting key file beginning UTC- to `modules/parity/files/secrets/account0`, and save the password at `modules/parity/files/secrets/user.pwds`
 
+If you're making a private node not already listed, edit manifests/init.pp to change "your-node-goes-here" to your node's hostname. You will also need to add your key, which is in the "address" field of the file you made at modules/parity/files/secrets/account0.
+
+
 The following are hard-coded:
 
  * modules/parity/manifests/init.pp: 
