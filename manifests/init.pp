@@ -68,3 +68,13 @@ node zen-tokyo-3 {
 
 }
 
+node your-node-goes-here {
+
+   $NODE_ROLE = "PRIVATE_NODE"
+   $UNLOCK_ACCOUNT = "0xYourAddressGoesHere"
+
+   include puppet
+   include parity
+   include truffle-deps
+
+}
