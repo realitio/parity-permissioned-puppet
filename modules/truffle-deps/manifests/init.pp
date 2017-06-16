@@ -6,4 +6,8 @@ class truffle-deps {
    package { "build-essential":
       ensure => installed,
    }
+   package { "python":
+      ensure => installed,
+   }
+
 }
