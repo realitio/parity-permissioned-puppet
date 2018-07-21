@@ -23,4 +23,14 @@ class webserver {
       require => Package["nginx"],
    }
 
+   # For certbot
+   file { "/var/www/html/.acme":
+      ensure => directory,
+      owner => root,
+      group => root,
+      require => File["/var/www/html"],
+   }
+
+
+
 }
