@@ -3,7 +3,7 @@ Description=Parity Daemon
  
 [Service]
 User=parity
-ExecStart=/usr/bin/parity --config /home/parity/zenchain/node.toml
+ExecStart=/usr/bin/parity
  
 [Install]
 WantedBy=default.target
