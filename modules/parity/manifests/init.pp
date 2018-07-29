@@ -28,6 +28,14 @@ class parity {
       require => File["/home/parity/parity_1.6.5_amd64.deb"],
    }
 
+   file { '/etc/parity.toml':
+     mode    => '0644',
+     owner   => 'root',
+     group   => 'root',
+     source  => "puppet:///modules/parity/etc/parity.toml.$network",
+     notify  => Exec["parity-systemd-reload"],
+   }
+
    file { '/lib/systemd/system/parity.service':
      mode    => '0644',
      owner   => 'root',

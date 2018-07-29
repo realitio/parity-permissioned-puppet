@@ -3,7 +3,7 @@ Description=Parity Daemon
  
 [Service]
 User=parity
-ExecStart=/usr/bin/parity
+ExecStart=/usr/bin/parity -c /etc/parity.toml
  
 [Install]
 WantedBy=default.target

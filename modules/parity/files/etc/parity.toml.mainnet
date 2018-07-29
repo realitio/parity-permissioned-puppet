@@ -1,0 +1,3 @@
+[rpc]
+# Allows Cross-Origin Requests from domain '*'.
+cors = ["all"]
