@@ -8,3 +8,14 @@ node rc-dev-3 {
    include webserver
 
 }
+
+node rc-dev-4 {
+
+   $network = 'rinkeby'
+
+   include puppet
+   include utils
+   include parity
+   include webserver
+
+}
