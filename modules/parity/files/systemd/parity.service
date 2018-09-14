@@ -1,9 +1,11 @@
 [Unit]
 Description=Parity Daemon
- 
+After=network.target 
+
 [Service]
 User=parity
 ExecStart=/usr/bin/parity -c /etc/parity.toml
+Restart=on-failure
  
 [Install]
 WantedBy=default.target
