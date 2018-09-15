@@ -15,7 +15,8 @@ node rc-dev-4 {
 
    include puppet
    include utils
-   include parity
+   #include parity
+   # set up geth manually
    include webserver
 
 }
